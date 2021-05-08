@@ -37,13 +37,13 @@ if __name__ == '__main__':
         face_list = cascade.detectMultiScale(img_gray, minSize=(100, 100))
 
         # 検出した顔に印を付ける
-        for (x, y, w, h) in face_list:
-            color = (0, 0, 225)
-            pen_w = 3
-            cv2.rectangle(img_gray, (x, y), (x+w, y+h), color, thickness = pen_w)
-            pyautogui.hotkey('command','tab')
+        for n in face_list:
+            pyautogui.keyDown('command')
+            pyautogui.press('tab')
+            pyautogui.keyUp('command')
+            # pyautogui.hotkey('command','tab')
             time.sleep(1)
-            pyautogui.write('if (test)\: \n print\("hello World"‘)')
+            # pyautogui.write('if (test)\: \n print\("hello World"‘)')
             cv2.destroyAllWindows()
             cap.release()
         # フレーム表示
